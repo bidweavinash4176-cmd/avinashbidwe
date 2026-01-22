@@ -7,7 +7,7 @@ def get_db_connection():
     return mysql.connector.connect(
         host="mysql", # Special address to access host's local MySQL
         user="root",
-        password="@Abcd$4176",
+        password="root",
         database="school"
     )
 
