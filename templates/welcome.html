@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Management Portal</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--primary-gradient);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d3436;
+        }
+
+        .welcome-card {
+            background: var(--glass);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #636e72;
+            margin-bottom: 2rem;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: #dfe6e9;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background: #6c5ce7;
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid #6c5ce7;
+            color: #6c5ce7;
+        }
+
+        .btn-outline:hover {
+            background: rgba(108, 92, 231, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="welcome-card">
+        <div class="date-badge">ADMISSION STATUS: ACTIVE | JAN 2026</div>
+        <h1>Congratulations ! Welcome to Wipro !</h1>
+        <p>Your Data saved successfully. </p>
+    </div>
+
+</body>
+</html>

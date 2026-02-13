@@ -1,0 +1,20 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    environment:
+      # Mandatory: Set the root password
+      MYSQL_ROOT_PASSWORD: root
+      # Optional: Create an initial database
+      MYSQL_DATABASE: school
+      # Optional: Create a non-root user
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
