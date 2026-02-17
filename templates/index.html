@@ -1,80 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Advertisement</title>
+    <title>Add Student</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; padding: 20px; background-color: #f0f2f5; }
-        
-        /* Advertisement Card */
-        .ad-container {
-            max-width: 400px;
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+        form {
             background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            border: 1px solid #ddd;
+            padding: 20px;
+            width: 300px;
+            margin: 50px auto;
+            border-radius: 5px;
         }
-
-        /* Top Header Image Area */
-        .ad-header {
-            background: linear-gradient(135deg, #003366, #0055aa);
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            background: green;
             color: white;
-            padding: 30px 20px;
+            padding: 10px;
+            border: none;
+            width: 100%;
         }
-
-        .ad-header h1 { margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
-        .ad-header p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
-
-        /* Content Area */
-        .ad-body { padding: 25px; }
-        .ad-body h2 { color: #333; margin-bottom: 10px; font-size: 20px; }
-        .ad-body ul { list-style: none; padding: 0; margin: 15px 0; text-align: left; }
-        .ad-body li { margin-bottom: 8px; padding-left: 20px; position: relative; color: #555; }
-        .ad-body li::before { content: '✔'; position: absolute; left: 0; color: #00aa00; }
-
-        /* Call to Action Button */
-        .apply-btn {
-            display: inline-block;
-            background-color: #ff4757;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: 0.3s;
-            margin-top: 10px;
-        }
-        .apply-btn:hover { background-color: #e84118; transform: scale(1.05); }
-        
-        .footer-text { font-size: 12px; color: #888; margin-top: 15px; }
     </style>
 </head>
 <body>
 
-    <div class="ad-container">
-        <div class="ad-header">
-            <h1>Welcome to Bidwe Tech University</h1>
-            <p>Admissions Open for 2026</p>
-        </div>
+<form action="/submit" method="POST">
+    <h2>Student Details</h2>
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="number" name="age" placeholder="Age" required>
+    <input type="text" name="course" placeholder="course" required>
+    <button type="submit">Submit</button>
+</form>
 
-        <div class="ad-body">
-            <h2>Shape Your Future</h2>
-            <p>Join the #1 ranked college for Engineering and Design.</p>
-            
-            <ul>
-                <li>World-class Infrastructure</li>
-                <li>100% Placement Assistance</li>
-                <li>Expert Faculty from Industry</li>
-                <li>International Exchange Programs</li>
-            </ul>
-
-            <a href="./login.html" class="apply-btn">APPLY NOW</a>
-            <p class="footer-text">Scholarships available for early applicants.</p>
-        </div>
-    </div>
 
 </body>
 </html>
