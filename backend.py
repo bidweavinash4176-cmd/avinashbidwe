@@ -1,24 +1,38 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from authlib.integrations.flask_client import OAuth
+from werkzeug.middleware.proxy_fix import ProxyFix
 import mysql.connector
+import os
 
+# --------------------------------
+# Flask App
+# --------------------------------
 app = Flask(__name__)
-app.secret_key = "supersecret"
 
-# ----------------------------
+# Apply ProxyFix AFTER creating app
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_port=1)
+
+# secure random secret
+app.secret_key = "super-strong-random-string"
+
+
+# --------------------------------
 # KEYCLOAK CONFIG
-# ----------------------------
+# --------------------------------
 oauth = OAuth(app)
 
 keycloak = oauth.register(
     name='keycloak',
     client_id='flask-app',
-    client_secret='EHLcKiBWTaXUjZeGbfwyzHUK0ritiEDo',
+    client_secret='f7QYB7JOQ3P2Yrwnwq7LGCAJyGuFKuaS',
     server_metadata_url='http://keycloak:8080/realms/flask-realm/.well-known/openid-configuration',
     client_kwargs={
         'scope': 'openid profile email'
     }
 )
+
+
+
 
 # ----------------------------
 # AUTH ROUTES
@@ -39,32 +53,11 @@ def login():
     )
 
 
-
-
 @app.route("/callback")
 def callback():
     token = keycloak.authorize_access_token()
-
-    print("\n========== TOKEN OBJECT ==========")
-    print(token)
-
-    print("\n========== ACCESS TOKEN ==========")
-    print(token["access_token"])
-
-    print("\n========== ID TOKEN ==========")
-    print(token["id_token"])
-
-    session['user'] = token["userinfo"]
-
+    session['user'] = token
     return redirect("/")
-
-
-
-
-
-
-
-
 
 @app.route("/logout")
 def logout():
